@@ -1,15 +1,16 @@
 const express = require('express');
-const logger = require('./middleware/logger');
+const logger = require('morgan');
 const helmet = require('helmet');
 
+const server = express();
 
 const actionRouter = require('./routes/actionRouter');
 const projectRouter = require('./routes/projectRouter');
 
-const server = express();
 
 
-server.use(express.json(), helmet(), logger);
+
+server.use(express.json(), helmet(), logger('short'));
 
 server.get('/', (req, res) => {
     res.send(`<h1>Welcome to the API app.</h1>`)

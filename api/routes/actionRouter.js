@@ -1,7 +1,7 @@
 const express = require('express');
 const actions = require('../data/helpers/actionModel');
 const { validateAction, validateActionId } = require('../middleware/validate');
-const router = express.Router({ mergeParams: true });
+const router = express.Router();
 
 
 router.get("/", (req, res, next) => {
